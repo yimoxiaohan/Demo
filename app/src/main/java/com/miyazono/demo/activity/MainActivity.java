@@ -5,9 +5,11 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.miyazono.demo.R;
+import com.miyazono.demo.tools.volWorkAdapter;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -37,6 +39,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ListView mvolWork =findViewById(R.id.volWork_list_view);
+        volWorkAdapter volWorkAdapter =new volWorkAdapter(MainActivity.this );
+        mvolWork.setAdapter(volWorkAdapter);
 
         mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
